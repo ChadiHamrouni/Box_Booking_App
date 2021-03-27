@@ -107,9 +107,13 @@ public class student{
 
 						// 	if (fScn.nextLine().isBlank())
 						if ((start.before(startboxTime) && end.before(startboxTime)) || (start.after(endboxTime) && (end.after(endboxTime))))
-							if (!(data = input.nextLine()).isEmpty()) {
-								writer.write(startTime + "|" + endTime + "." + System.lineSeparator());
-									}
+                          //  System.out.println("im here");
+						//	if (fScn.nextLine().equals(""))
+                            if (fScn.hasNextLine()) {
+                                fScn.nextLine();
+                                writer.write(startTime + "|" + endTime + "." + System.lineSeparator());
+
+                            }
 
 							}
 					  writer.close();
