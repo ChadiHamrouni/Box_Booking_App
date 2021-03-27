@@ -2,6 +2,7 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 import static java.lang.Integer.parseInt;
+import static java.lang.Integer.rotateLeft;
 
 public class student{
 	
@@ -10,7 +11,7 @@ public class student{
 		
 		if (id/(int)Math.pow(10,6) == 0) throw new InvalidIdException("This ID is invalid!");
 		/* Checking if the email is a valid SMU email */
-		String[] keywords = {"a","@medtech.tn","@msb.tn"};
+		String[] keywords = {"@smu","@medtech.tn","@msb.tn"};
 		boolean found = false;
 		for (String s: keywords)
 			if (email.contains(s)){
@@ -38,7 +39,7 @@ public class student{
 					(end.before(start)) || end.after(sdf.parse("07:00 pm"))) throw
 					new TimeException("Boxes are only available from 8am to 7pm!");
 		}
-		
+
 	public static void main(String[] args) throws ParseException{
 			try {
 				Scanner input = new Scanner(System.in);
@@ -63,7 +64,6 @@ public class student{
 					admin admin = new admin();
 					admin.exec();
 				}
-				
 				else {
 					//User
 					int id = parseInt(str);
@@ -103,22 +103,22 @@ public class student{
 										strrEND = data.substring(data.indexOf('|')+1,data.indexOf('.'));
 										endboxTime = sdf.parse(strrEND);					
 									}
-									if ((start.equals(startboxTime)&& (end.equals(endboxTime)))) { System.out.println("f"); break; }
+									if ((start.equals(startboxTime)&& (end.equals(endboxTime)))||(start.before(endboxTime) && end.after(endboxTime)))
 
-						// 	if (fScn.nextLine().isBlank())
-						if ((start.before(startboxTime) && end.before(startboxTime)) || (start.after(endboxTime) && (end.after(endboxTime))))
-                          //  System.out.println("im here");
-						//	if (fScn.nextLine().equals(""))
-                            if (fScn.hasNextLine()) {
-                                fScn.nextLine();
-                                writer.write(startTime + "|" + endTime + "." + System.lineSeparator());
+									{
+										System.out.println("This time is already taken");
+										System.exit(0);
+									}
 
-                            }
-
-							}
-					  writer.close();
-				}
-				
+									else
+										if (fScn.hasNextLine())
+                               					{
+                                   			 fScn.nextLine();
+                                   			 writer.write(startTime + "|" + endTime + "."+ System.lineSeparator());
+                                   			 writer.close();
+                            					}
+											}
+				    }
 				}catch(ParseException | InvalidEmailException | InvalidIdException |
 						NumberFormatException | TimeException  e){
 					System.err.println(e.getMessage());
@@ -129,7 +129,6 @@ public class student{
 
 		 Date dNow = new Date();
 		 SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzzz");
-		 System.out.println("Current Date: " + ft.format(dNow)); 
-
+		 System.out.println("Current Date: " + ft.format(dNow));
 	}
 }

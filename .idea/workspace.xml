@@ -4,6 +4,7 @@
     <list default="true" id="5921f3a8-a445-47ec-9bcf-a48a2067a5b1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/Logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/Logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/box.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

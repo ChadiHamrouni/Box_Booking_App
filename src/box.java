@@ -25,9 +25,6 @@ public class box {
 		} catch (IOException e) {
 			System.out.println("An error occurred.");}
 	}
-	/*public String checkAvailable() {
-		return " ";
-	}*/
 
 	public void bookBox(Date startDate, Date endDate,user u){
 		this.states = true;
@@ -36,6 +33,7 @@ public class box {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 		String time = dateFormat.format(dateFormat);
 		String msg = startTime +":"+ endTime +":"+ u.email+":"+u.id+System.lineSeparator();
+
 		try {
 			FileWriter myWriter = new FileWriter(this.filename, true);
 			myWriter.write(msg);
